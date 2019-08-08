@@ -1,0 +1,21 @@
+<mat-card [style.background]="product.type == 0 ? 'green' : 'blue'">
+  <mat-card-header>    
+    <mat-card-title><p class="text">{{product.name}}</p></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="product.img" [alt]="product.name">
+  <mat-card-content>    
+    <p class="text">Detalle : {{product.detail}}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <div style="display:flex;flex-direction:column;">      
+      <p class="text" *ngIf="product.retail_price; else without">
+          Precio Retail: <s>{{( product.retail_price | currency:'CLP')}}</s>
+      </p>
+      <ng-template #without>
+          <p class="text">Precio Retail: N/Asignado</p>
+      </ng-template>
+
+      <p class="text" >Precio Import: <span style="font-size: 22px;font-family: 'Source Sans Pro, Bold' !important;">{{ product.importclub_price ? (product.importclub_price | currency:'CLP') : 'N/Asignado' }}</span></p>    
+    </div>    
+  </mat-card-footer>
+</mat-card>

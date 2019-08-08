@@ -1,0 +1,5 @@
+<div class="cardList">
+  <ng-container *ngFor="let product of productsObservable | async" >  
+    <view-product class="cardListItem" [product] = product ></view-product>  
+  </ng-container>
+</div>
